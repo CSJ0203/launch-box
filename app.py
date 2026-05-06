@@ -135,6 +135,10 @@ html, body, [class*="css"] {
 }
 
 /* Streamlit 버튼 오버라이드 */
+div.stButton {
+    text-align: center;
+}
+
 div.stButton > button {
     background: #1a1a1a !important;
     color: white !important;
@@ -144,7 +148,6 @@ div.stButton > button {
     font-size: 1.05rem !important;
     font-weight: 700 !important;
     font-family: 'Noto Sans KR', sans-serif !important;
-    width: 100%;
     transition: opacity 0.15s, transform 0.15s !important;
     letter-spacing: -0.3px;
 }
@@ -153,6 +156,7 @@ div.stButton > button:hover {
     opacity: 0.85 !important;
     border: none !important;
 }
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -189,7 +193,10 @@ else:
     """, unsafe_allow_html=True)
 
 # 버튼
-if st.button("🎲 오늘의 점심 고르기"):
+_, col, _ = st.columns([3, 4, 3])
+with col:
+    clicked = st.button("🎲 오늘의 점심 고르기", use_container_width=True)
+if clicked:
     # 로딩 애니메이션
     with result_placeholder:
         for msg in LOADING_MESSAGES:
