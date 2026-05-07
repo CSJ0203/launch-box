@@ -160,9 +160,8 @@ div.stButton > button:hover {
     border: none !important;
 }
 
-footer {visibility: hidden;}
-#MainMenu {visibility: hidden;}
-header {visibility: hidden;}
+footer, #MainMenu, header {visibility: hidden !important;}
+[data-testid="stToolbar"] {display: none !important;}
 
 </style>
 """, unsafe_allow_html=True)
