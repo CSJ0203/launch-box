@@ -160,6 +160,10 @@ div.stButton > button:hover {
     border: none !important;
 }
 
+footer {
+    visibility: hidden;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
